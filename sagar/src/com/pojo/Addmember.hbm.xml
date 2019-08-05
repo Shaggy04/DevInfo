@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 Aug, 2018 7:00:59 AM by Hibernate Tools 3.6.0.Final -->
+<hibernate-mapping>
+    <class name="com.pojo.Addmember" table="addmember" catalog="sagar">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sponser" class="com.pojo.Sponser" fetch="select">
+            <column name="sid" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="200" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="200" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="100" />
+        </property>
+        <property name="pid" type="java.lang.Integer">
+            <column name="pid" />
+        </property>
+        <property name="enrollmentFee" type="string">
+            <column name="enrollment_fee" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

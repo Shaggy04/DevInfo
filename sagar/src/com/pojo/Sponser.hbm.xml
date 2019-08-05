@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 Aug, 2018 7:00:59 AM by Hibernate Tools 3.6.0.Final -->
+<hibernate-mapping>
+    <class name="com.pojo.Sponser" table="sponser" catalog="sagar">
+        <id name="sid" type="java.lang.Integer">
+            <column name="sid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="position" class="com.pojo.Position" fetch="select">
+            <column name="pid" />
+        </many-to-one>
+        <property name="sname" type="string">
+            <column name="sname" length="100" />
+        </property>
+        <set name="addmembers" table="addmember" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sid" />
+            </key>
+            <one-to-many class="com.pojo.Addmember" />
+        </set>
+    </class>
+</hibernate-mapping>
